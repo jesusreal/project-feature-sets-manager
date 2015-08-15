@@ -1,0 +1,24 @@
+<div class="text-center">
+	<button id="first_page" class="btn btn-default"
+		ng-click="dataGrid().goToPage('first')"
+		ng-disabled="dataGrid().isFirstPage()">
+		<i class="fa fa-step-backward"></i>
+	</button>
+	<button id="previous_page" class="btn btn-default"
+		ng-click="dataGrid().goToPage('previous')"
+		ng-disabled="dataGrid().isFirstPage()">
+		<i class="fa fa-caret-left fa-lg"></i>
+	</button>
+	<span id="pagination_info">Page {{ dataGrid().getApi().pagination.getPage() }} of
+		{{dataGrid().getApi().pagination.getTotalPages() }}</span>
+	<button id="next_page" class="btn btn-default"
+		ng-click="dataGrid().goToPage('next')"
+		ng-disabled="dataGrid().isLastPage()">
+		<i class="fa fa-caret-right fa-lg"></i>
+	</button>
+	<button id="last_page" class="btn btn-default"
+		ng-click="dataGrid().goToPage('last')"
+		ng-disabled="dataGrid().isLastPage()">
+		<i class="fa fa-step-forward"></i>
+	</button>
+</div>

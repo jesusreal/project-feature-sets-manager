@@ -1,0 +1,18 @@
+<div class="tree-node">
+	<div class="tree-node-content">
+		<label class="checkbox-inline">
+			<input type="checkbox" id="{{node.id}}" ng-disabled="tree().isOnlyViewActivated()" 
+				   ng-click="tree().onComponentSelectionChanged(node.id)" 
+				   data-active-nodes="tree().getActiveComponents()" fs-tree-node-checkbox/>
+			{{node.title}}
+		</label>
+		<button ng-if="node.children.length" class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+			<span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>
+		</button>
+	</div>
+</div>
+
+
+
+<!-- 			<input type="checkbox" id="{{node.id}}" ng-click="tree().onTreeComponentSelectionChanged(node.id)"  -->
+<!-- 							 data-active-nodes="tree().getActiveComponents()" fs-tree-node-checkbox/> -->

@@ -1,0 +1,79 @@
+<div>
+	<div class="row well">
+	   	<fs-tree data-tree="componentsGlobalTemplateEditCtrl.componentsManager"></fs-tree>
+	</div>
+	
+	
+	<div class="row well" ng-show="componentsGlobalTemplateEditCtrl.mode==='none' || componentsGlobalTemplateEditCtrl.mode==='removeComponent'">
+		<div class="btn-group" role="group">
+			<button class="btn btn-primary"
+			   ng-disabled="componentsGlobalTemplateEditCtrl.componentsManager.isAnyComponentActive()"
+			   ng-click="componentsGlobalTemplateEditCtrl.enterMode('addNewTree')">
+				<i class="fa fa-plus"></i>
+				<span>New tree</span>
+		  	</button>
+			<button class="btn btn-primary"
+			   ng-disabled="!componentsGlobalTemplateEditCtrl.componentsManager.isAnyComponentActive()"
+			   ng-click="componentsGlobalTemplateEditCtrl.enterMode('addNewChild')">
+				<i class="fa fa-plus"></i>
+				<span>Add child</span>
+		  	</button>
+	  		<button class="btn btn-default"
+			   ng-disabled="!componentsGlobalTemplateEditCtrl.componentsManager.isAnyComponentActive()"
+			   ng-click="componentsGlobalTemplateEditCtrl.enterMode('editComponent')">
+				<i class="fa fa-pencil"></i>
+				<span>Edit name</span>
+		  	</button>
+	  		<button class="btn btn-default" 
+			   ng-disabled="!componentsGlobalTemplateEditCtrl.componentsManager.isAnyComponentActive()"
+			   ng-click="componentsGlobalTemplateEditCtrl.enterMode('removeComponent')">
+				<i class="fa fa-trash"></i>
+				<span>Delete</span>
+		  	</button>
+		</div>		  	
+		<div class="btn-group pull-right" role="group">
+	  		<button ui-sref="project" class="btn btn-default">
+				<i class="fa fa-times"></i>
+				<span>Close</span>
+		  	</button>
+		</div>
+	</div>
+	
+	<form name="editComponentsGlobalTemplateFrom" method="post" class="form-horizontal" novalidate="true" 
+		  ng-show="componentsGlobalTemplateEditCtrl.mode!=='none' && componentsGlobalTemplateEditCtrl.mode!=='removeComponent'">
+		<div class="row well">
+			<div class="main_content col-sm-12 clearfix">
+				<div class="form-group" ng-if="componentsGlobalTemplateEditCtrl.mode === 'addNewTree'">
+					<label for="name" class="col-sm-2 control-label">Tree name</label>
+					<div class="col-sm-9">
+						<input id="tree_name" type="text" class="form-control" placeholder="Enter the tree name" maxlength="50"
+							   ng-model="componentsGlobalTemplateEditCtrl.editData.treeName" required="true"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="description" class="col-sm-2 control-label">Component title</label>
+					<div class="col-sm-9">
+						<input type="text" id="component_title" class="form-control" placeholder="Enter the component title" maxlength="50"
+							   ng-model="componentsGlobalTemplateEditCtrl.editData.componentTitle" required="true"/>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row well">
+			<div class="btn-group pull-right clearfix" role="group">
+				<button class="btn btn-primary" ng-disabled="editComponentsGlobalTemplateFrom.$invalid"
+				   ng-click="componentsGlobalTemplateEditCtrl.saveChanges()">
+					<i class="fa fa-floppy-o"></i>
+					<span>Save</span>
+				</button>
+				<button class="btn btn-default" ng-click="componentsGlobalTemplateEditCtrl.resetAndUpdateTreeVars();">
+					<i class="fa fa-times"></i>
+					<span>Cancel</span>
+				</button>
+			</div>
+		</div>
+	</form>
+	
+	
+</div>
+

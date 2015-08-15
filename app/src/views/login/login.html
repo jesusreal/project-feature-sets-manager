@@ -1,0 +1,32 @@
+<div class="row well" ng-controller="LoginController as loginCtrl">
+	<form name="loginForm" class="form-inline" ng-if="!applicationCtrl.isAuthenticated()" 
+		  ng-submit="loginCtrl.login()" novalidate>
+		<div class="form-group col-sm-4">
+			<label for="username" class="control-label">Username</label>
+			<input type="text" id="username" class="form-control col-sm-offset-1" ng-model="loginCtrl.credentials.username" placeholder="Enter user name" required="true">
+		</div>
+		<div class="form-group col-sm-4">
+			<label for="password" class="control-label">Password</label>
+			<input type="password" id="password" class="form-control col-sm-offset-1" ng-model="loginCtrl.credentials.password" placeholder="Enter password" required="true">
+		</div>
+		<button type="submit" id="login" class="btn btn-primary col-sm-1" ng-disabled="loginForm.$invalid">Login</button>
+		<span class="error_msg text-danger text-right col-sm-3" ng-show="loginCtrl.loginFailed">
+			Invalid username and/or password 
+		</span>
+		<span class="error_msg text-danger text-right col-sm-3" ng-show="loginCtrl.accessDeniedMessage !== null">	
+			{{loginCtrl.accessDeniedMessage}}
+		</span>
+
+	</form>
+	<div ng-if="applicationCtrl.isAuthenticated()">
+		<span class="error_msg text-danger col-sm-3" ng-show="loginCtrl.accessDeniedMessage !== null">	
+			{{loginCtrl.accessDeniedMessage}}
+		</span>
+		<div class="pull-right">
+			<span id="logged_user_info">Logged as user id {{applicationCtrl.currentUser.id}} ({{applicationCtrl.currentUser.role}})</span>
+			<button class="btn btn-primary" id="logout" ng-click="loginCtrl.logout();">
+				<span>Logout</span>
+			</button>
+		</div>
+	</div>
+</div>

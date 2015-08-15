@@ -1,0 +1,60 @@
+<div>
+<div class="row well"">
+	<div class="search_bar col-sm-12" ng-if="featureSetIndexCtrl.featureSets.length > 0">
+		<div class="col-sm-8 input-group">
+			<input type="search" id="feature-set-search" class="search-box form-control" placeholder="Search for a feature set" ng-model="featureSetIndexCtrl.searchQuery" 
+				ng-change="featureSetIndexCtrl.dataGrid.filterRows(featureSetIndexCtrl.featureSets, featureSetIndexCtrl.searchQuery)" autofocus="autofocus"/>
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" ng-show="featureSetIndexCtrl.searchQuery.length"
+					ng-click="featureSetIndexCtrl.emptySearchQuery(); featureSetIndexCtrl.dataGrid.filterRows(featureSetIndexCtrl.featureSets, featureSetIndexCtrl.searchQuery)">
+					<i class="glyphicon glyphicon-remove"></i>
+				</button>
+			</span>
+		</div>
+	</div>
+  	<div class="no-resource text-center" ng-if="featureSetIndexCtrl.featureSets.length === 0">
+	  		<p class="no-resource-message"> Currently there is no feature set for this project. Please create one or go back to projects page</p>
+  	</div>
+</div>
+<div class="row well">
+	<div class="main_content col-sm-12">
+		<div id="featureSetsGrid" class="data_grid" 
+			 ui-grid="featureSetIndexCtrl.dataGrid.getSettings()" ui-grid-selection="true" ui-grid-pagination> 
+			<!-- ng-if="featureSetIndexCtrl.dataGrid.getData().length" -->
+		</div>
+		<fs-pagination data-data-grid="featureSetIndexCtrl.dataGrid"></fs-pagination>
+   	</div>
+</div>
+<div class="row well">
+	<div class="btn-group pull-right" role="group">
+  		<button ui-sref="project.feature-set.new" class="btn btn-primary" 
+		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.featureSetNew)">
+			<i class="fa fa-plus"></i>
+			<span>New</span>
+	  	</button>
+  		<button ui-sref="project.feature-set.view({featureSetId: featureSetIndexCtrl.dataGrid.getSelectedRowId()})"
+				id="view" class="btn btn-default"
+		   ng-disabled="!featureSetIndexCtrl.dataGrid.isAnyRowSelected()"
+		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.featureSetView)">
+			<i class="fa fa-eye"></i>
+			<span>View</span>
+		</button>
+		<button ui-sref="project.feature-set.edit({featureSetId: featureSetIndexCtrl.dataGrid.getSelectedRowId()})" class="btn btn-default"
+		   ng-disabled="!featureSetIndexCtrl.dataGrid.isAnyRowSelected()">
+			<i class="fa fa-pencil"></i>
+			<span>Edit</span>
+	  	</button>
+  		<button class="btn btn-default" ng-click="featureSetIndexCtrl.openModal()" 
+		   ng-disabled="!featureSetIndexCtrl.dataGrid.isAnyRowSelected()"
+		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.featureSetRemove)">
+			<i class="fa fa-trash"></i>
+			<span>Delete</span>
+	  	</button>
+		<button ui-sref="project" id="close" class="btn btn-default">
+			<i class="fa fa-times"></i>
+			<span>Close</span>
+	  	</button>
+	</div>
+</div>
+
+</div>

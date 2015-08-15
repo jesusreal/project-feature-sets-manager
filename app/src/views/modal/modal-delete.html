@@ -1,0 +1,11 @@
+<div class="modal-header">
+	<h3 class="modal-title">Delete {{modalCtrl.headerText}}</h3>
+</div>
+<div class="modal-body">
+	Are you sure you want to delete {{modalCtrl.bodyText}}
+	This action cannot be undone.
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" ng-click="$close()">OK</button>
+	<button class="btn btn-primary" ng-click="$dismiss()">Cancel</button>
+</div>

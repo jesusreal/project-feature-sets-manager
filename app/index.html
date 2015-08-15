@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="projectFeatureSetsManager">
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide { display: none!important; }
+    </style>
+    <title ng-bind="title">Feature set</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/app/"></base>
+
+
+    
+    <!-- Bower components -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+	<link rel="styleSheet" href="bower_components/angular-ui-grid/ui-grid.css">
+	<link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">        
+    <script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+	<script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>   
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/bootstrap-ui-treeview/dist/tree-view.js"></script>
+<!--    <script src="bower_components/q/q.js"></script>-->
+<!--     <script src="bower_components/bootstrap-ui-treeview/examples/style.css"></script> -->
+    
+    <!--App Specific JS Source codes-->
+    <script src="src/app.module.js"></script>
+    <script src="src/routes.js"></script>
+    <script src="src/applicationCtrl.js"></script>
+    <script src="src/views/project/projectValue.js"></script>
+    <script src="src/views/project/projectFactory.js"></script>
+    <script src="src/views/project/projectActiveComponentsValue.js"></script>
+    <script src="src/views/project/projectActiveComponentsFactory.js"></script>
+	<script src="src/views/project/projectIndexCtrl.js"></script>
+    <script src="src/views/project/newEdit/projectNewEditCtrl.js"></script>
+    <script src="src/views/featureSet/featureSetValue.js"></script>   
+    <script src="src/views/featureSet/featureSetFactory.js"></script>   
+	<script src="src/views/featureSet/featureSetActiveComponentsValue.js"></script>
+    <script src="src/views/featureSet/featureSetActiveComponentsFactory.js"></script>
+    <script src="src/views/featureSet/featureSetIndexCtrl.js"></script>
+    <script src="src/views/featureSet/view/featureSetViewCtrl.js"></script>
+    <script src="src/views/featureSet/newEdit/featureSetNewEditCtrl.js"></script>
+    <script src="src/views/componentsGlobalTemplate/componentsGlobalTemplateValue.js"></script>
+    <script src="src/views/componentsGlobalTemplate/componentsGlobalTemplateFactory.js"></script>
+    <script src="src/views/componentsGlobalTemplate/componentsGlobalTemplateEditCtrl.js"></script>
+    <script src="src/views/modal/modalCtrl.js"></script>
+    <script src="src/views/fsTree/fsTree.js"></script>
+    <script src="src/views/fsTree/fsTreeNode.js"></script>
+    <script src="src/views/fsTree/fsTreeNodeCheckbox.js"></script>
+	<script src="src/views/fsPagination/fsPagination.js"></script>
+	<script src="src/common/dataGridFactory.js"></script>   
+	<script src="src/common/componentsManagerFactory.js"></script>   
+    <script src="src/common/methodsFactory.js"></script>
+    <script src="src/views/login/loginCtrl.js"></script>
+    <script src="src/views/login/loginFactory.js"></script>
+    <script src="src/views/login/loginSessionFactory.js"></script>
+    <script src="src/views/login/loginEventsConstant.js"></script>
+    <script src="src/views/login/loginRolesConstant.js"></script>
+
+    
+	<!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">   
+</head>
+<body>
+    <div class="container" ng-controller="ApplicationController as applicationCtrl">
+    	<div class="row well well-lg text-center">
+	        <div class="header col-sm-12">
+	        	<h3>HEADER</h3>
+	        </div>
+	   	</div>
+		<ng-include src="'/app/src/views/login/login.html'"></ng-include>
+
+	   	<div class="main-wrapper">
+	   		<div ui-view></div>
+        </div>
+    </div>
+</body>
+</html>

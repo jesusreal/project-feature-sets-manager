@@ -1,0 +1,26 @@
+<div class="row well">
+	<div class="col-sm-2 text-right">
+		<span><strong>Name</strong></span>
+	</div>
+	<div class="col-sm-9">
+		<span id="name">{{featureSetViewCtrl.featureSet.name}}</span>
+	</div>
+	<div class="col-sm-2 text-right">
+		<span><strong>Description</strong></span>
+	</div>
+	<div class="col-sm-9">
+		<span id="description">{{featureSetViewCtrl.featureSet.description}}</span>
+	</div>
+</div>
+<div class="row well">
+	<fs-tree data-tree="featureSetViewCtrl.componentsManager"></fs-tree>
+</div>
+<div class="row well">
+	<div class="pull-right clearfix">
+		<button ui-sref="project.feature-set" id="close" class="btn btn-default">
+			<i class="fa fa-times"></i>
+			<span>Close</span>
+		</button>
+	</div>
+</div>
+

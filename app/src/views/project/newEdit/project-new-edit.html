@@ -1,0 +1,36 @@
+<form name="projectForm" method="post" class="form-horizontal" novalidate="true">
+	<div class="row well">
+		<div class="main_content col-sm-12 clearfix">
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Name</label>
+				<div class="col-sm-9">
+			        <input id="name" type="text" class="form-control" ng-model="projectNewEditCtrl.project.name" placeholder="Enter the project name" maxlength="50" required="true"/>
+				</div>
+		    </div>
+ 			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-9">
+				    <textarea id="description" class="form-control" ng-model="projectNewEditCtrl.project.description" placeholder="Enter the project description" maxlength="250" rows="1" required="true"></textarea>
+				</div>
+			</div>
+		</div>
+   	</div>
+	<div class="row well">
+	   	<fs-tree data-tree="projectNewEditCtrl.componentsManager"></fs-tree>
+	</div>
+	<div class="row well">
+		<div class="btn-group pull-right clearfix" role="group">
+	  		<button class="btn btn-primary"
+			   ng-disabled="projectForm.$invalid || !projectNewEditCtrl.componentsManager.isAnyComponentActive()"
+			   ng-click="projectNewEditCtrl.saveProject()">
+				<i class="fa fa-floppy-o"></i>
+				<span>Save</span>
+		  	</button>
+	  		<button ui-sref="project" id="cancel" class="btn btn-default">
+				<i class="fa fa-times"></i>
+				<span>Cancel</span>
+		  	</button>
+		</div>
+	</div>
+</form>
+
