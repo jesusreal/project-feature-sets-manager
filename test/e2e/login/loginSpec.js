@@ -96,7 +96,7 @@ describe('Login', function() {
 		//TODO
 		var unsuccessfulLoginMessage = element(by.cssContainingText('span', 'Invalid username and/or password'));
 
-		browser.navigate().to('http://localhost:8000/app/#/componentsGlobalTemplateEdit')
+		browser.navigate().to('http://localhost:8000/app/#/componentsGlobalTemplateEdit');
 		browser.wait(function(){
 			return false;
 		}, 10000);

@@ -4,13 +4,13 @@
     angular
 		.module('projectFeatureSetsManager')
 		.config(function ($stateProvider, $urlRouterProvider, LOGIN_ROLES) {
-			var baseUrl = '/app/src/views';
+			var baseUrl = '/src/views';
 
 			var projectIndex = {
 				url: '/project',
 				templateUrl: baseUrl + '/project/project-index.html',
 				controller: 'ProjectIndexController',
-				controllerAs: 'projectIndexCtrl',
+				controllerAs: 'projectIndexCtrl'
 			};
 
 			var projectNew = {
@@ -56,7 +56,7 @@
 						controller: 'FeatureSetIndexController',
 						controllerAs: 'featureSetIndexCtrl'				    	
 					}
-				},
+				}
 			};
 			var featureSetView = {
 				url: '/view/:featureSetId',

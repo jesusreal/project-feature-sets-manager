@@ -1,7 +1,4 @@
-'use strict';
-
-/* jasmine specs for app go here */
-describe('Methods Factory', function() {
+xdescribe('Methods Factory', function() {
 
 	/**********************  HELPER METHODS **************************/
 

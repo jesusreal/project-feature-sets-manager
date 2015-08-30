@@ -1,15 +1,16 @@
 (function () {
-    'use strict';   	
-
     angular
 		.module('projectFeatureSetsManager')
 		.factory('Project', ProjectFactory); 
 				
 				
-	function ProjectFactory (PROJECT_DATA, ProjectActiveComponents, FeatureSet) {
+	function ProjectFactory (PROJECT_DATA, ProjectActiveComponents, FeatureSet, $http) {
 		return {
 			getAll: function(){
-				return angular.copy(PROJECT_DATA);
+				return $http.get('src/views/project/projectValue.json').then(
+					function(response) { return response.data; },
+					function(response) {throw response.data;}
+            	);
 			},
 			get: function(projectId){
 				var projectData = {};
@@ -25,9 +26,14 @@
 			},
 			insert: function(projectData, projectComponents) {
 				projectData.id = Math.ceil(Math.random() * 1e3);
-	    		PROJECT_DATA.push(projectData);
-				ProjectActiveComponents.insert(projectComponents, projectData.id);
-				return projectData.id;
+	    		return $http.post('src/views/project/projectValue.json',projectData).then(
+	    			function(response) { return response.data; },
+	    			function(response) { throw response.data; }
+	    		);
+
+	   //  		PROJECT_DATA.push(projectData);
+				// ProjectActiveComponents.insert(projectComponents, projectData.id);
+				// return projectData.id;
 			},
 			update: function(projectData) {
 	    		var amountOfRows = PROJECT_DATA.length;
@@ -63,11 +69,11 @@
 					console.log("Project removed: " + componentsRemovedFromProject + featureSetsRemoved);
 					if (componentsRemovedFromProject && featureSetsRemoved) {
 						returnVal = true;
-					};
+					}
 				}
 	    		return returnVal;
 			}
 		}
-	}; 	   	
+	}
     	
 })();

@@ -9,11 +9,11 @@
     function fsPagination() {
     	return {
     		restrict: "E",
-    		templateUrl: "/app/src/views/fsPagination/fs-pagination.html",
+    		templateUrl: "/src/views/fsPagination/fs-pagination.html",
 		    scope: {
 		    	dataGrid: "&"
-		    },   	
-    	}
+		    } 	
+    	};
     }
 })();
 

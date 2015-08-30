@@ -22,12 +22,13 @@
 </div>
 <div class="row well">
 	<div class="btn-group pull-right" role="group">
-  		<button ui-sref="project.new" id="edit" class="btn btn-primary"
+  		<button ui-sref="project.new" id="new" class="btn btn-primary"
 		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.projectNew)">
 			<i class="fa fa-plus"></i>
 			<span>New</span>
 	  	</button>
   		<button ui-sref="project.edit({projectId: projectIndexCtrl.dataGrid.getSelectedRowId()})" class="btn btn-default"
+		   id="edit"
 		   ng-disabled="!projectIndexCtrl.dataGrid.isAnyRowSelected()" 
 		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.projectEdit)">
 			<i class="fa fa-pencil"></i>
@@ -35,12 +36,13 @@
 	  	</button>
  		<button class="btn btn-default" ng-click="projectIndexCtrl.openModal()" 
 		   ng-disabled="!projectIndexCtrl.dataGrid.isAnyRowSelected()" 
+		   id="delete"
 		   ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.projectRemove)">
 			<i class="fa fa-trash"></i>
 			<span>Delete</span>
 	  	</button>
-	  	<button ui-sref="project.feature-set({projectId: projectIndexCtrl.dataGrid.getSelectedRowId()})" 
-				id="load_feature_sets" class="btn btn-default" 
+	  	<button ui-sref="project.feature-set({projectId: projectIndexCtrl.dataGrid.getSelectedRowId()})"
+				id="load-feature-sets" class="btn btn-default" 
 		   ng-disabled="!projectIndexCtrl.dataGrid.isAnyRowSelected()">
 			<i class="fa fa-file-text-o"></i>
 			<span>Load feature sets</span>
@@ -48,7 +50,7 @@
 	</div>
 	<div class="btn-group" role="group" 
 		 ng-if="applicationCtrl.isAuthorized(applicationCtrl.authorizedRolesForActions.componentsGlobalTemplateEdit)">
-  		<button id="edit_components-global-template" ui-sref="componentsGlobalTemplateEdit()" class="btn btn-default">
+  		<button id="edit-components-global-template" ui-sref="componentsGlobalTemplateEdit()" class="btn btn-default">
 			<i class="fa fa-file-text-o"></i>
 			<span>Edit components global template</span>
 	  	</button>

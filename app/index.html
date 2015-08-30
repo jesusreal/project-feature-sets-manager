@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html ng-app="projectFeatureSetsManager">
 <head>
-    <style>
-        /* This helps the ng-show/ng-hide animations start at the right place. */
-        /* Since Angular has this but needs to load, this gives us the class early. */
-        .ng-hide { display: none!important; }
-    </style>
     <title ng-bind="title">Feature set</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <base href="/app/"></base>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-    
     <!-- Bower components -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
 	<link rel="styleSheet" href="bower_components/angular-ui-grid/ui-grid.css">
-	<link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">        
+	<link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+
     <script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-resource/angular-resource.js"></script>
 	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
 	<script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>   
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/bootstrap-ui-treeview/dist/tree-view.js"></script>
-<!--    <script src="bower_components/q/q.js"></script>-->
-<!--     <script src="bower_components/bootstrap-ui-treeview/examples/style.css"></script> -->
     
     <!--App Specific JS Source codes-->
     <script src="src/app.module.js"></script>
@@ -65,6 +54,12 @@
     <script src="src/views/login/loginEventsConstant.js"></script>
     <script src="src/views/login/loginRolesConstant.js"></script>
 
+
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+
+
     
 	<!-- Styles -->
     <link rel="stylesheet" href="css/main.css">   
@@ -76,7 +71,7 @@
 	        	<h3>HEADER</h3>
 	        </div>
 	   	</div>
-		<ng-include src="'/app/src/views/login/login.html'"></ng-include>
+		<ng-include src="'src/views/login/login.html'"></ng-include>
 
 	   	<div class="main-wrapper">
 	   		<div ui-view></div>

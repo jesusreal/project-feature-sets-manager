@@ -1,8 +1,4 @@
-'use strict';
-
-/* jasmine specs for app go here */
-xdescribe('_Project_ Factory', function() {
-
+describe('Project Factory', function() {
 	
 	/**********************  HELPER METHODS **************************/
 
@@ -11,14 +7,14 @@ xdescribe('_Project_ Factory', function() {
 			var param = params[i];
 			expect(result[param]).toBe(initial[param]);
 		}
-	};
+	}
 	function checkParamsToHaveChanged (result, update, initial, params) {
 		for (var i=0; i < params.length; i++){
 			var param = params[i];
 			expect(result[param]).toEqual(update[param]);
 			expect(result[param]).not.toEqual(initial[param]);
 		}
-	};
+	}
 
 
     /**********************  SET UP AND TEAR DOWN  **************************/

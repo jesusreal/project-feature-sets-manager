@@ -1,6 +1,5 @@
 (function () {
-    'use strict';   	
-
+	
     angular
 		.module('projectFeatureSetsManager')
 		.factory('DataGrid', DataGridFactory); 				
@@ -28,14 +27,14 @@
 				//useExternalFiltering: true,
 				enableFiltering: false,
 				enablePaginationControls: false,
-				paginationPageSize: 1,
+				paginationPageSize: 1
 			};
 			this.settings.columnDefs =  [
 				{ field: 'id', sort:{"direction":uiGridConstants.ASC}, width:'5%' },		
 				{ field: 'name', width:'25%' }, 
 				{ field: 'description', width:'35%'},
 				{ field: 'created', width:'*' },     		
-				{ field: 'lastChanged', width:'*' },     		
+				{ field: 'lastChanged', width:'*' }   		
 			];
 			this.setData(gridData);
 			this.settings.onRegisterApi = function(gridApi) {
@@ -140,6 +139,6 @@
 			return this.lastVisitedPage[gridType];
 		}		
 		return dataGrid;
-	}; 	   	
+	}  	
     	
 })();

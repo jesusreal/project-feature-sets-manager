@@ -43,5 +43,5 @@ exports.config = {
 	suites: {
 		grid: 'e2e/grid/*Spec.js',
 		login: ['e2e/login/*Spec.js']
- 	},
+ 	}
 };

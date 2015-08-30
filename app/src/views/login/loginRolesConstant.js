@@ -1,6 +1,4 @@
 (function () {
-    'use strict';   	
-
 	var roles = {};
 	
 	roles.users = {

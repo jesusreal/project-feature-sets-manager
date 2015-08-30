@@ -24,7 +24,7 @@
 		 	delete $cookies.projectFeatureSetsManagerSessionId;
 		 	delete $cookies.projectFeatureSetsManagerUserId;
 		 	delete $cookies.projectFeatureSetsManagerUserRole;
-		}
+		};
 		
 		session.createSessionFromCookies = function(){
 			if (Object.keys($cookies).length > 0) {
@@ -32,7 +32,7 @@
 				var user = {
 					id: $cookies.projectFeatureSetsManagerUserId,
 					role: $cookies.projectFeatureSetsManagerUserRole
-				}
+				};
 				session.createSession(sessionId, user);
 				$rootScope.$broadcast(LOGIN_EVENTS.loginSuccess);
 			}

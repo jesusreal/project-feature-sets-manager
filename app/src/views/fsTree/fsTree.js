@@ -9,7 +9,7 @@
     function fsTree() {
     	return {
     		restrict: "E",
-    		templateUrl: "/app/src/views/fsTree/fs-tree.html",
+    		templateUrl: "/src/views/fsTree/fs-tree.html",
 //    		controller: "@",
 //    		name: "controllerName",
 //		    controllerAs: 'ctrl',

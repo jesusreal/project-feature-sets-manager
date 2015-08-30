@@ -37,7 +37,7 @@
 	    	openModal: function(headerText, bodyText) {
 	    		var modalInstance = $modal.open({
 	    			animation: true,
-	    			templateUrl: '/app/src/views/modal/modal-delete.html',
+	    			templateUrl: '/src/views/modal/modal-delete.html',
 	    			controller: 'ModalController',
 	    			controllerAs: 'modalCtrl',
 	    			size: null,

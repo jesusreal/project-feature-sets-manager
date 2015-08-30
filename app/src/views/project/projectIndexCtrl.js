@@ -1,16 +1,22 @@
 (function () {
-    'use strict';
 
     angular
 		.module('projectFeatureSetsManager')
 		.controller("ProjectIndexController", ProjectIndexController);
 
     function ProjectIndexController($modal, Project, FeatureSet, DataGrid, Methods) {
-    	this.searchQuery = "";
-    	this.projects = Project.getAll();
-    	this.dataGrid = DataGrid;
-    	this.dataGrid.initialise(this.projects, "projects");
-    	this.modalInstance;
+        var self = this;
+        this.searchQuery = "";
+        this.dataGrid = DataGrid;
+        this.dataGrid.initialise(null, "projects");
+
+        this.modalInstance;
+       	Project.getAll().then(function(projects) {
+            self.projects = projects;
+            self.dataGrid.setData(self.projects);
+        });
+
+
     	this.emptySearchQuery = function() {
     		this.searchQuery = "";
     	};

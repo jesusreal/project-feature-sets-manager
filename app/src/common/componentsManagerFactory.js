@@ -1,7 +1,8 @@
 (function() {
 	'use strict';
 
-	angular.module('projectFeatureSetsManager').factory('ComponentsManager', ComponentsManagerFactory)
+	angular.module('projectFeatureSetsManager')
+			.factory('ComponentsManager', ComponentsManagerFactory)
 			.factory('ComponentsManagerForProjects', ComponentsManagerForProjectsFactory)
 			.factory('ComponentsManagerForGlobalTemplate', ComponentsManagerForGlobalTemplateFactory)
 			.factory('ComponentsManagerForFeatureSets', ComponentsManagerForFeatureSetsFactory);
@@ -295,7 +296,7 @@
 			return modifiedComponents;
 		};
 		return treeForComponents;
-	};
+	}
 
 	
 	function ComponentsManagerForGlobalTemplateFactory(ComponentsManager) {
@@ -328,7 +329,7 @@
 		}
 
 		return treeForComponentsGlobalTemplate;
-	};
+	}
 
 	
 	function ComponentsManagerForProjectsFactory(ComponentsManager, ProjectActiveComponents) {
@@ -352,7 +353,7 @@
 		};
 		
 		return treeForProjects;
-	};
+	}
 
 	
 	function ComponentsManagerForFeatureSetsFactory(ComponentsManager, FeatureSetActiveComponents, FeatureSet, ProjectActiveComponents) {

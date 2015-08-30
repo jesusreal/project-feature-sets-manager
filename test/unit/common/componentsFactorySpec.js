@@ -1,7 +1,7 @@
 'use strict';
 
 /* jasmine specs for app go here */
-describe('Components Factory', function() {
+xdescribe('Components Factory', function() {
 
 	/**********************  HELPER METHODS **************************/
 
